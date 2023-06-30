@@ -15,6 +15,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def 
+    search
+  end
   # GET /tweets/1/edit
   def edit
   end
