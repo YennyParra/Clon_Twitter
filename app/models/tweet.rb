@@ -3,8 +3,8 @@ class Tweet < ApplicationRecord
         
     pg_search_scope :search_full_text,
     against: {
-        username: 'A',
-        description: 'B',
+        Username: 'A',
+        Description: 'B',
     
     }
     end
