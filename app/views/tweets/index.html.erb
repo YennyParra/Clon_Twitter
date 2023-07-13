@@ -1,21 +1,38 @@
+<head>
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
-
+<h1 style="color:blue">Tweets</h1>
+<div class= "buscar">
 <%= form_with url: tweets_path, method: :get do |form| %>
-  <%= form.text_field :query_text, placeholder: ('busqueda'), value: params[:query_text] %>
+<%= form.text_field :query_text, placeholder: ('busqueda'), value: params[:query_text] %>
 <%end%>
-<br><br>
-
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
-  <% end %>
 </div>
-<br><br>
-<%= raw pagy_bootstrap_nav(@pagy)%>
+</head>
+<div class= "container text-center">
+<div class= "row align-items-start tarjeta">
 
-<%= link_to "New tweet", new_tweet_path %>
+<div class="col">
+  <% @tweets.each_with_index do |tweet, index| %>
+  <div class="card d-inline-flex shadow p-3 m-5 bg-body-tertiary">
+  <div class="card-body texto-tarjeta align-items-center">
+  
+
+
+
+    <%= render tweet %>
+    <p><%= link_to "Show this tweet", tweet, class:"mostrar" %></p>
+   
+    </div>
+    </div>
+  <% end %>
+  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="nuevo d-inline-flex"><%= link_to "New tweet", new_tweet_path %>
+</div>
+<div class="container">
+<div class="paginas d-inline-flex"> <%= raw pagy_bootstrap_nav(@pagy)%>
+</div>
+</div>
